@@ -55,17 +55,17 @@ Customers can create an account.
 
 Users can:
 
-Login.
-Logout.
-Reset password.
+- Login.
+- Logout.
+- Reset password.
 
 ## Profile Management
 
 Users can:
 
-Update personal information.
-Manage preferences.
-View activity history.
+- Update personal information.
+- Manage preferences.
+- View activity history.
 
 # Module 2: Flight Search Management
 ## Features
