@@ -201,5 +201,72 @@ END FUNCTION
 The Booking History module allows users to retrieve all previous bookings stored in the local database. Users can filter their bookings, view booking details, and optionally retrieve the latest booking status from the external provider.
 
 ## Flowchart
-![Flowchart](images/bookingHotel-flowchart.png)
+![Flowchart](images/bookingHistory-flowchart.png)
+
+## Sequence Diagram
+![Sequence Diagram](images/bookingHistory-sq.png)
+
+## Pseduocode
+```code
+FUNCTION getBookingHistory(userId, filters):
+
+    ---------------------------------------
+    1. Validate User
+    ---------------------------------------
+
+    IF userId is NULL:
+        RETURN "Unauthorized"
+
+    user = userService.getUser(userId)
+
+    IF user does not exist:
+        RETURN "User not found"
+
+
+    ---------------------------------------
+    2. Get Bookings
+    ---------------------------------------
+
+    bookings = bookingRepository.findByUserId(
+        userId,
+        filters
+    )
+
+
+    ---------------------------------------
+    3. Check Result
+    ---------------------------------------
+
+    IF bookings is empty:
+        RETURN "No booking history found"
+
+
+    ---------------------------------------
+    4. Build Response
+    ---------------------------------------
+
+    history = []
+
+    FOR EACH booking IN bookings:
+
+        bookingData = {
+            bookingId: booking.id,
+            hotelName: booking.hotelName,
+            room: booking.room,
+            checkIn: booking.checkIn,
+            checkOut: booking.checkOut,
+            price: booking.price,
+            bookingStatus: booking.status,
+            paymentStatus: booking.paymentStatus,
+            provider: booking.provider
+        }
+
+        history.add(bookingData)
+
+
+    RETURN history
+
+END FUNCTION
+```
+
 
