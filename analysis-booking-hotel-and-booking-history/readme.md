@@ -15,7 +15,7 @@ The booking process includes:
 - Email notification
 
 ## FlowChart
-![ER Diagram](resources/Food_Delivery_Schema.png)
+![Flowchart]([images/bookingHotel-flowchart.png])
 
 # Booking History
 The Booking History module allows users to retrieve all previous bookings stored in the local database. Users can filter their bookings, view booking details, and optionally retrieve the latest booking status from the external provider.
