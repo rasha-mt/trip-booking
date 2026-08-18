@@ -264,12 +264,11 @@ FUNCTION getBookingHistory(userId, filters):
         history.add(bookingData)
 
     RETURN history
+END FUNCTION
 ```
 
 ## Sequence Diagram
 ![Sequence Diagram](images/ERD-booking.png)
 
-END FUNCTION
-```
 
 
