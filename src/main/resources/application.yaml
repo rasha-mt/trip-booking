@@ -1,0 +1,47 @@
+spring:
+  application:
+    name: flight-search
+  config:
+    import: optional:file:.env[.properties]
+flight:
+  providers:
+    duffel:
+      base-url: https://api.duffel.com
+      token: ${DUFFEL_ACCESS_TOKEN:}
+      timeout: 120000
+      max-response-size: 10485760
+    flightapi:
+      base-url: https://api.flightapi.io
+      api-key: ${FLIGHTAPI_KEY:}
+      timeout: 120000
+      max-response-size: 10485760
+    aviationstack:
+      base-url: https://api.aviationstack.com/v1
+      api-key: ${AVIATIONSTACK_KEY:}
+      timeout: 120000
+      max-response-size: 10485760
+    liteapi:
+      base-url: https://api.liteapi.travel/v3.0
+      api-key: ${LITEAPI_KEY:}
+      timeout:  120000
+      max-response-size: 10485760
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      timeout: 2s
+
+#    amadeus:
+#      base-url: https://test.api.amadeus.com  # Example for Amadeus sandbox
+#      client-id: ${AMADEUS_CLIENT_ID}
+#      client-secret: ${AMADEUS_CLIENT_SECRET}
+#      timeout: 5000
+
+logging:
+  file:
+    name: C:/dev/flight-search/logs/flight-search.log
+  level:
+    root: INFO
+    com.apiintegration.flightsearch: DEBUG
+
